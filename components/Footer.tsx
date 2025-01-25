@@ -1,65 +1,79 @@
-import Link from "next/link"
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
+'use client'
 
-export default function Footer() {
+import { motion } from 'framer-motion'
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
+import { FiPhone, FiMail } from 'react-icons/fi'
+import Link from 'next/link'
+
+const Footer = () => {
+  const socialLinks = [
+    { icon: FaFacebookF, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
+    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: FaLinkedinIn, href: 'https://linkedin.com', label: 'LinkedIn' },
+  ]
+
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-center">
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold mb-4">Hackathon 2025</h2>
-            <p className="text-gray-400">Innovate. Create. Inspire.</p>
+    <footer className="bg-gray-900 text-gray-300 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-center md:text-left mb-8 md:mb-0">
+            <h3 className="text-2xl font-bold text-purple-400">InfoHacks 2025</h3>
+            <p className="mt-2">Unleash Your Creativity, Code the Future</p>
           </div>
-          <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="hover:text-purple-400 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-purple-400 transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/register" className="hover:text-purple-400 transition-colors">
-                  Register
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-purple-400 transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="w-full md:w-1/3">
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+          <div className="flex flex-col items-center md:items-end space-y-4">
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-purple-400 transition-colors">
-                <FaFacebook size={24} />
-                <span className="sr-only">Facebook</span>
-              </a>
-              <a href="#" className="text-white hover:text-purple-400 transition-colors">
-                <FaTwitter size={24} />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a href="#" className="text-white hover:text-purple-400 transition-colors">
-                <FaInstagram size={24} />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" className="text-white hover:text-purple-400 transition-colors">
-                <FaLinkedin size={24} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label={link.label}
+                >
+                  <link.icon className="w-6 h-6" />
+                </motion.a>
+              ))}
+            </div>
+            <div className="flex space-x-4">
+              <Link href="tel:+1234567890" passHref>
+                <motion.a
+                  className="flex items-center text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FiPhone className="w-5 h-5 mr-2" />
+                  <span>Call Us</span>
+                </motion.a>
+              </Link>
+              <Link href="mailto:info@hackfest2023.com" passHref>
+                <motion.a
+                  className="flex items-center text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FiMail className="w-5 h-5 mr-2" />
+                  <span>Email Us</span>
+                </motion.a>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="mt-8 text-center text-gray-400 text-sm">© 2025 Hackathon. All rights reserved.</div>
+        <div className="mt-8 text-center text-sm border-t border-gray-800 pt-8">
+          <p className="mb-2">&copy; {new Date().getFullYear()} InfoHacks. All rights reserved.</p>
+          <p className="text-base">
+            Designed and Developed by Dept. of{' '}
+            <span className="text-blue-400 animate-pulse">INFORMATION</span>{' '}
+            <span className="text-green-400 animate-pulse">TECHNOLOGY</span>
+          </p>
+        </div>
       </div>
     </footer>
   )
 }
+
+export default Footer
 
