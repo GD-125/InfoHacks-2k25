@@ -1,25 +1,21 @@
-'use client'
+"use client"
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { MapPin, Calendar, Clock } from 'lucide-react'
-import { useRef } from 'react'
+import { motion, useScroll, useTransform } from "framer-motion"
+import { MapPin, Calendar, Clock } from "lucide-react"
+import { useRef } from "react"
 
-const Venue = () => {
+const Venue = ({ id }: { id?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   })
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
 
-
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
-      <motion.div
-        ref={containerRef}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-      >
+    <section id={id} className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+      <motion.div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,10 +28,7 @@ const Venue = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            style={{ y }}
-            className="space-y-8"
-          >
+          <motion.div style={{ y }} className="space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -97,7 +90,7 @@ const Venue = () => {
               className="relative h-[400px] rounded-lg overflow-hidden"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9587.809859848972!2d77.02946939449349!3d10.674201828390357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8379603118171%3A0xaabce92d2cdd4e50!2sP.%20A.%20College%20of%20Engineering%20and%20Technology%20(Autonomous)%2C%20Pollachi%2C%20Coimbatore!5e1!3m2!1sen!2sin!4v1737011929539!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9587.809859848972!2d77.02946939449349!3d10.674201828390357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8379603118171%3A0xaabce92d2cdd4e50!2sP.%20A.%20College%20of%20Engineering%20and%20Technology%20(Autonomous)%2C%20Pollachi%2C%20Coimbatore!5e1!3m2!1sen!2sin!4v1737011929539!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -107,7 +100,6 @@ const Venue = () => {
               ></iframe>
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent pointer-events-none"></div>
             </motion.div>
-
           </div>
         </div>
       </motion.div>
