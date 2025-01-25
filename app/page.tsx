@@ -19,8 +19,8 @@ export default function Home() {
         <Hero />
         <About />
         <ProjectShowcase />
-        <Awards />
-        <Venue />
+        <Awards id="awards" />
+        <Venue id="venue" />
         <Team />
         <Coordinators />
         <Footer />
