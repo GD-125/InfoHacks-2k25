@@ -63,12 +63,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 text-center text-sm border-t border-gray-800 pt-8">
-          <p className="mb-2">&copy; {new Date().getFullYear()} InfoHacks. All rights reserved.</p>
           <p className="text-base">
             Designed and Developed by Dept. of{' '}
             <span className="text-blue-400 animate-pulse">INFORMATION</span>{' '}
             <span className="text-green-400 animate-pulse">TECHNOLOGY</span>
           </p>
+          <p className="mb-2">&copy; {new Date().getFullYear()} InfoHacks. All rights reserved.</p>
         </div>
       </div>
     </footer>
