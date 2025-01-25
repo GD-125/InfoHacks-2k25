@@ -40,8 +40,8 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
-                href="/guidelines.pdf"
-                download="InfoHacks2025_Guidelines.pdf"
+                href="/guidelines/InfoHacks2025_Guidelines.pdf"
+                download
                 className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors duration-300 mr-2"
               >
                 Guidelines
@@ -114,8 +114,8 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              href="/guidelines.pdf"
-              download="InfoHacks2025_Guidelines.pdf"
+              href="/guidelines/InfoHacks2025_Guidelines.pdf"
+              download
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
