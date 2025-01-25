@@ -203,11 +203,11 @@ const ProjectShowcase = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-5xl font-bold text-center text-purple-400 mb-12">Project Showcase</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-800 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="bg-gray-800 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
             >
               <div className="relative">
                 <img
