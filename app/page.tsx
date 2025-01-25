@@ -1,5 +1,5 @@
+import dynamic from "next/dynamic"
 import Navbar from "@/components/Navbar"
-import Hero from "@/components/Hero"
 import About from "@/components/About"
 import ProjectShowcase from "@/components/ProjectShowcase"
 import Coordinators from "@/components/Coordinators"
@@ -8,6 +8,8 @@ import Venue from "@/components/Venue"
 import Footer from "@/components/Footer"
 import { ThemeProvider } from "./providers"
 import Team from "@/components/Team"
+
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false })
 
 export default function Home() {
   return (
