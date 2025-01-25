@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-const navItems = ["About", "Projects", "Awards", "Venue", "Coordinators"]
+const navItems = ["About", "Projects", "Awards", "Venue", "Team", "Coordinators"]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
