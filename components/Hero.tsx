@@ -1,21 +1,37 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { Download, FileText } from 'lucide-react'
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { Download, FileText } from "lucide-react"
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+    if (typeof window !== "undefined") {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+      }
+
+      window.addEventListener("mousemove", handleMouseMove)
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove)
+      }
     }
+  }, [])
 
-    window.addEventListener('mousemove', handleMouseMove)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+      }
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
+      window.addEventListener("resize", handleResize)
+      handleResize() // Set initial size
+
+      return () => window.removeEventListener("resize", handleResize)
     }
   }, [])
 
@@ -93,24 +109,24 @@ const Hero = () => {
         className="absolute inset-0 z-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
       >
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-purple-500 rounded-full"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * windowSize.width,
+              y: Math.random() * windowSize.height,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * windowSize.width,
+              y: Math.random() * windowSize.height,
             }}
             transition={{
               duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: 'reverse',
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
             }}
           />
         ))}
