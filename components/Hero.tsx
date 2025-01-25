@@ -74,8 +74,8 @@ const Hero = () => {
             Register Now
           </motion.a>
           <motion.a
-            href="/template.pptx"
-            download="InfoHacks2025_Template.pptx"
+            href="/templates/InfoHacks2025_Template.pptx"
+            download
             className="w-full sm:w-auto bg-transparent border-2 border-purple-500 text-purple-400 px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-900/20 transition duration-300 ease-in-out transform hover:scale-105 inline-flex items-center justify-center gap-2 min-w-[200px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -84,8 +84,8 @@ const Hero = () => {
             Template
           </motion.a>
           <motion.a
-            href="/guidelines.pdf"
-            download="InfoHacks2025_Guidelines.pdf"
+            href="/guidelines/InfoHacks2025_Guidelines.pdf"
+            download
             className="w-full sm:w-auto bg-transparent border-2 border-pink-500 text-pink-400 px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-900/20 transition duration-300 ease-in-out transform hover:scale-105 inline-flex items-center justify-center gap-2 min-w-[200px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
